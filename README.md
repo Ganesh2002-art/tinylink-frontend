@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+📘 TinyLink Frontend (React + Plain CSS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend for TinyLink, a URL shortener application built with:
 
-## Available Scripts
+React (Create React App)
 
-In the project directory, you can run:
+Plain CSS
 
-### `npm start`
+React Router
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Fetch API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Vercel deployment
 
-### `npm test`
+This frontend communicates with the backend API deployed on Render and displays:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✔ Dashboard with all shortened URLs
+✔ Add link form
+✔ Stats page
+✔ Search bar
+✔ Responsive mobile view
+✔ Copy-to-clipboard
+✔ Delete functionality
 
-### `npm run build`
+🚀 Live Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Frontend:
+👉 https://tinylink-frontend-sable.vercel.app/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Backend API:
+👉 https://backend-dk98.onrender.com/api/links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+📂 Project Structure
+/src
+   /components
+      Header.js
+      LinksTable.js
+      AddLinkForm.js
+      StatsCard.js
+      SearchBar.js
 
-### `npm run eject`
+   /pages
+      Dashboard.js
+      StatsPage.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   /utils
+      api.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   /styles
+      global.css
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+⚙️ Environment Variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a .env file in the frontend folder:
 
-## Learn More
+REACT_APP_API_URL=https://backend-dk98.onrender.com
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Restart the app after adding it.
 
-### Code Splitting
+▶️ Running the Frontend Locally
+Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Start development server
+npm start
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+App will run at:
 
-### Making a Progressive Web App
+👉 http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🌍 Deployment (Vercel)
 
-### Advanced Configuration
+This project is deployed on Vercel with CI/CD via GitHub.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Steps:
 
-### Deployment
+Connect your GitHub repo to Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Add environment variable:
 
-### `npm run build` fails to minify
+REACT_APP_API_URL=https://backend-dk98.onrender.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Deploy automatically on every git push
+
+📡 API Integration
+
+All API calls handled inside:
+
+src/utils/api.js
+
+
+Example:
+
+export async function fetchLinks() {
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/links`);
+  return res.json();
+}
+
+🏁 Features Implemented
+🔗 Link Shortening
+
+Auto code generation
+
+Custom code support
+
+Real-time validation
+
+📊 Dashboard
+
+List all links
+
+Sort by date
+
+Search bar
+
+Click analytics
+
+📱 Responsive UI
+
+Table collapses into cards
+
+Mobile-friendly
+
+🔁 Redirect Support
+
+Redirect handled by backend.
+
+🎯 Final Notes
+
+React App uses fetch() for API calls
+
+CORS is configured on backend
+
+Fully compatible with Render + Vercel deployments
+
+Clean, minimal UI using plain CSS
